@@ -12,7 +12,18 @@
   font-size: 20px;
   line-height: 26px;
 }
-
+#Language{
+  font-size: x-small;
+}
+#languageRow{
+  margin-top: 50px;
+}
+#smallText{
+  font-size: 11px !important;
+  padding-top: 0px !important;
+  margin-top: 0px !important;
+  color: #ffffff;
+}
 #container p {
   font-size: 16px;
   line-height: 22px;
@@ -21,11 +32,42 @@
 
   margin: 0;
 }
-
+.Logo{
+  font-family: 'Brush Script MT';
+  font-size: 40px;
+}
 #container a {
   text-decoration: none;
 }
-
+ion-input {
+  color:#32db64;	
+}
+ion-item,ion-input{
+  size: 35px !important;
+  height: 35px !important;
+  margin-bottom: 15px !important;
+}
 ion-content ion-toolbar {
   --background: translucent;
+}
+ion-button{
+  height: 35px !important;
+  background-color: #2AC940 !important;
+  font-size: 11px;
+  margin-bottom: 0px !important;
+  padding-bottom: 0px !important;
+  font-style: normal;
+}
+ion-input{
+  font-size: 12px !important;
+  color: #ffffff;
+}
+.gold{
+  color: #f3ca3e;
+}
+.white{
+  color: #ffffff;
+}
+.green{
+  color: #2AC940;
 }

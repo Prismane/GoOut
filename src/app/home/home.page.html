@@ -1,20 +1,46 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <!-- Header -->
+  <div class="container ion-text-center">
+    <ion-row id="languageRow">
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-select id="Language" ok-text="Okay" cancel-text="Cancel" value="English">
+          <ion-select-option  value="English">English (United States)</ion-select-option>
+        </ion-select>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </div>
+  
+  <!-- Login Secion -->
+  <div id="container" class="Login">
+    <ion-row>
+      <ion-col>
+        <h3 class="Logo"><span class="gold">G</span><span class="green">o</span><span class="white">O</span><span class="green">u</span><span>t</span><span class="green">!</span></h3>
+        <ion-row>
+          <ion-col></ion-col>
+          <ion-col size="10">
+            <div>
+              <ion-item>
+                <ion-input  placeholder="Email address or username" type="text" size="8px" inputmode="text"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input  placeholder="Password" type="password" size="8px" inputmode="password"></ion-input>
+              </ion-item>
+              <ion-button color="#2AC940" id="submitButton" expand="full"><span id="submitText">Let's Find somewhere to Go!</span></ion-button>
+            </div>
+          </ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col></ion-col>
+          <ion-col size="10">
+            <p class="ion-text-start" id="smallText">Forget your login details? <a>Click here</a> or <a (click)="goToSignUp()">Sign Up</a> Instead</p>
+          </ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+        
+      </ion-col>
+    </ion-row>
   </div>
 </ion-content>
