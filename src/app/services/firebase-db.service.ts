@@ -35,4 +35,18 @@ export class FirebaseDBService {
     return this.afDatabase.object(`${path}`).set(object);
   }
 
+
+
+  /**
+   * 
+   * @param email 
+   * @param password 
+   * 
+   * Method that accepts email and password to check if the user data is in the database 
+   * if it is then this data will return to be used later on
+   */
+  public authenticateUser(email,password):Promise<firebase.auth.UserCredential>{
+    return this.afAuth.auth.signInWithEmailAndPassword(email,password);
+  }
+
 }
