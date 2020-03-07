@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { Router} from '@angular/router';
 import { FirebaseDBService } from '../../services/firebase-db.service';
-import { IUser } from '../../Interfaces/IUser';
 import { UtilityService } from 'src/app/services/utility.service';
-
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +18,7 @@ export class HomePage {
 
 
   constructor(private router: Router,private fireDBService:FirebaseDBService,
-    private utilityServ:UtilityService) {}
+    private utilityServ:UtilityService,private navCtrl:NavController) {}
 
 
  /**
@@ -39,6 +38,7 @@ export class HomePage {
       //print successful toast message
 
      this.utilityServ.presentToast('Login was successful.');
+     this.navCtrl.navigateRoot('tabs-page');
       
     }).catch((err)=>{
  

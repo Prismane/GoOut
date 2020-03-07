@@ -16,6 +16,14 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   },
+  {
+    path: 'tabs-page',
+    loadChildren: () => import('./pages/tabs-page/tabs-page.module').then( m => m.TabsPagePageModule)
+  },
+  {
+    path: 'feeds',
+    loadChildren: () => import('./pages/feeds/feeds.module').then( m => m.FeedsPageModule)
+  },
 ];
 
 @NgModule({
