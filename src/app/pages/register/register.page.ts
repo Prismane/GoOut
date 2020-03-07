@@ -18,7 +18,9 @@ export class RegisterPage implements OnInit {
    private mainDBNodeRef = "GoOutDB";
    private userNodeRef = "userProfile";
    private user = {} as IUser;//create user of type IUser, which is an interface.
-   private password:string;
+   private password:string;//stores first password
+   private confirmPassword;//Stores second password
+
 
   constructor(private router: Router, private fireDBService:FirebaseDBService,
     private afAuth:AngularFireAuth, private utilityServ:UtilityService) {}
@@ -38,27 +40,30 @@ export class RegisterPage implements OnInit {
    * 
    */
   private registerUser():void{
-    this.fireDBService.createNewUser(this.user.email,this.password).then(()=>{
-    this.afAuth.authState.subscribe((auth) =>{ 
-      
-      this.user.uid = auth.uid;//Get user ID from firebase
-      console.log("uid saved ");
-      //Store user information to the database after specifying the node references.
-      this.fireDBService.addNewDataToDB(`${this.mainDBNodeRef}/${this.userNodeRef}/${this.user.uid}`,this.user)
-      .then(()=>{
-        console.log("user data stored");
-        this.router.navigateByUrl('home');
 
-          this.utilityServ.presentToast('Registration as successful!');
-      }).catch((err)=>{
 
-        this.utilityServ.presentToast('Registration failed! please check ');
-        console.log(err)
-      })
+        this.fireDBService.createNewUser(this.user.email,this.password).then(()=>{
+        this.afAuth.authState.subscribe((auth) =>{ 
+          
+          this.user.uid = auth.uid;//Get user ID from firebase
+          console.log("uid saved ");
+          //Store user information to the database after specifying the node references.
+          this.fireDBService.addNewDataToDB(`${this.mainDBNodeRef}/${this.userNodeRef}/${this.user.uid}`,this.user)
+          .then(()=>{
+            console.log("user data stored");
+            this.router.navigateByUrl('home');
 
-    })
+              this.utilityServ.presentToast('Registration as successful!');
+          }).catch((err)=>{
 
-    })
+            this.utilityServ.presentToast('Registration failed! please check ');
+            console.log(err)
+          })
+
+        })
+
+        })
+
 
 
   }

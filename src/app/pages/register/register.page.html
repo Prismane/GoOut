@@ -34,7 +34,7 @@
             <ion-input  placeholder="Password" type="password" size="8px" inputmode="password" [(ngModel)]="password"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input  placeholder="Confirm Password" type="password" size="8px" inputmode="password" ></ion-input>
+            <ion-input  placeholder="Confirm Password" type="password" size="8px" inputmode="password" [(ngModel)]="confirmPassword"></ion-input>
           </ion-item>
           <ion-button color="#2AC940" id="submitButton" expand="full" (click)="registerUser()"><span id="submitText" >Sign Me Up!</span></ion-button>
         </div>
