@@ -32,4 +32,8 @@ export class ForgetPasswordPage implements OnInit {
         });
    
   }
+
+  goToLogin():void{
+    this.router.navigateByUrl('home');
+  }
 }

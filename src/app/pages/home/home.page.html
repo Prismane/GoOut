@@ -22,12 +22,12 @@
           <ion-col size="10">
             <div>
               <ion-item>
-                <ion-input  placeholder="Email address or username" type="text" size="8px" inputmode="text" [(ngModel)]="user.email"></ion-input>
+                <ion-input  placeholder="Email address or username" type="text" size="8px" inputmode="text" [(ngModel)]="email"></ion-input>
               </ion-item>
               <ion-item>
-                <ion-input  placeholder="Password" type="password" size="8px" inputmode="password" [(ngModel)]="user.password"></ion-input>
+                <ion-input  placeholder="Password" type="password" size="8px" inputmode="password" [(ngModel)]="password"></ion-input>
               </ion-item>
-              <ion-button color="#2AC940" id="submitButton" expand="full"><span id="submitText" (click)="loginUser()">Let's Find somewhere to Go!</span></ion-button>
+              <ion-button color="#2AC940" id="submitButton" expand="full" (click)="loginUser()"><span id="submitText" >Let's Find somewhere to Go!</span></ion-button>
             </div>
           </ion-col>
           <ion-col></ion-col>

@@ -31,12 +31,12 @@
             <ion-input  placeholder="Email address or username" type="text" size="8px" inputmode="text" [(ngModel)]="user.email"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input  placeholder="Password" type="password" size="8px" inputmode="password" [(ngModel)]="user.password"></ion-input>
+            <ion-input  placeholder="Password" type="password" size="8px" inputmode="password" [(ngModel)]="password"></ion-input>
           </ion-item>
           <ion-item>
             <ion-input  placeholder="Confirm Password" type="password" size="8px" inputmode="password" ></ion-input>
           </ion-item>
-          <ion-button color="#2AC940" id="submitButton" expand="full"><span id="submitText" (click)="registerUser()">Sign Me Up!</span></ion-button>
+          <ion-button color="#2AC940" id="submitButton" expand="full" (click)="registerUser()"><span id="submitText" >Sign Me Up!</span></ion-button>
         </div>
         <ion-row>
           <ion-col></ion-col>

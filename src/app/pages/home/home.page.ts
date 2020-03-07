@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Router} from '@angular/router';
 import { FirebaseDBService } from '../../services/firebase-db.service';
 import { IUser } from '../../Interfaces/IUser';
+import { UtilityService } from 'src/app/services/utility.service';
+
 
 @Component({
   selector: 'app-home',
@@ -10,9 +12,14 @@ import { IUser } from '../../Interfaces/IUser';
 })
 export class HomePage {
 
-  private user = {} as IUser;
+  private email:string;// Stores user email from login input field
+  private password:string;//stores user's password from login screen
+   private toast;
 
-  constructor(private router: Router,private fireDBService:FirebaseDBService) {}
+
+
+  constructor(private router: Router,private fireDBService:FirebaseDBService,
+    private utilityServ:UtilityService) {}
 
 
  /**
@@ -28,13 +35,14 @@ export class HomePage {
  * Call method from firebase DB service class to authenticate user credentials
  */
   private loginUser():void{
-    this.fireDBService.authenticateUser(this.user.email,this.user.password).then(()=>{
+    this.fireDBService.authenticateUser(this.email,this.password).then(()=>{
       //print successful toast message
-      console.log("Login successful")
 
+     this.utilityServ.presentToast('Login was successful.');
       
     }).catch((err)=>{
-      console.log(err);
+ 
+      this.utilityServ.presentToast('Please check your email and password.');
     })
   }
 
@@ -45,5 +53,7 @@ export class HomePage {
     console.log("clicked")
     this.router.navigateByUrl('forget-password');
   }
+
+
 
 }
