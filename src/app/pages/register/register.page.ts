@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import { FirebaseDBService} from '../services/firebase-db.service';
-import { IUser } from '../Interfaces/IUser';
+import { FirebaseDBService} from '../../services/firebase-db.service';
+import { IUser } from '../../Interfaces/IUser';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { UtilityService } from 'src/app/services/utility.service';
 
 
 
@@ -18,7 +19,8 @@ export class RegisterPage implements OnInit {
    private userNodeRef = "userProfile";
    private user = {} as IUser;//create user of type IUser, which is an interface.
 
-  constructor(private router: Router, private fireDBService:FirebaseDBService,private afAuth:AngularFireAuth) {}
+  constructor(private router: Router, private fireDBService:FirebaseDBService,
+    private afAuth:AngularFireAuth, private utilityServ:UtilityService) {}
 
   /**
    * Navigate user to the login page
@@ -37,7 +39,7 @@ export class RegisterPage implements OnInit {
   private registerUser():void{
     this.fireDBService.createNewUser(this.user.email,this.user.password).then(()=>{
     this.afAuth.authState.subscribe((auth) =>{ 
-      console.log("user created successful!");
+      
       this.user.uid = auth.uid;//Get user ID from firebase
       console.log("uid saved ");
       //Store user information to the database after specifying the node references.
@@ -45,11 +47,10 @@ export class RegisterPage implements OnInit {
         console.log("user data stored");
         this.router.navigateByUrl('home');
 
-        console.log("registration successful!");
-
+          this.utilityServ.createToast('Registration as successful!');
       }).catch((err)=>{
 
-        //display error message in toast.
+        this.utilityServ.createToast('Registration failed! please check ');
         console.log(err)
       })
 
@@ -61,5 +62,7 @@ export class RegisterPage implements OnInit {
   }
 
 
+
+ 
 
 }

@@ -49,4 +49,12 @@ export class FirebaseDBService {
     return this.afAuth.auth.signInWithEmailAndPassword(email,password);
   }
 
+
+  /**
+   * 
+   */
+   public sendforgetPasswordEmail(email):Promise<void>{
+     return this.afAuth.auth.sendPasswordResetEmail(email);
+   }
+
 }

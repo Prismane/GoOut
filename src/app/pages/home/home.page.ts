@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router} from '@angular/router';
-import { FirebaseDBService } from '../services/firebase-db.service';
-import { IUser } from '../Interfaces/IUser';
+import { FirebaseDBService } from '../../services/firebase-db.service';
+import { IUser } from '../../Interfaces/IUser';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,12 @@ export class HomePage {
 
   constructor(private router: Router,private fireDBService:FirebaseDBService) {}
 
-  goToSignUp() {
+
+ /**
+  * Method that send users to the the registration page.
+  * Called in the home.html page
+  */
+  private goToSignUp():void {
     this.router.navigateByUrl('register');
   }
 
@@ -31,6 +36,14 @@ export class HomePage {
     }).catch((err)=>{
       console.log(err);
     })
+  }
+
+
+
+  private goToForgetPassword():void{
+
+    console.log("clicked")
+    this.router.navigateByUrl('forget-password');
   }
 
 }
