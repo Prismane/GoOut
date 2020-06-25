@@ -2,16 +2,50 @@ import { Injectable } from '@angular/core';
 import {AngularFireDatabase} from '@angular/fire/database';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { IPost } from '../Interfaces/ipost';
+import { IUser } from '../Interfaces/IUser';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseDBService {
 
- 
+  private mainDBNodeRef = "GoOutDB";
+  private userNodeRef = "userProfile";
+  private userData = {} as IUser;//STORES CURRENT USER DATA
 
-  constructor(private afAuth:AngularFireAuth,private afDatabase: AngularFireDatabase) { }
+  constructor(private afAuth:AngularFireAuth,private afDatabase: AngularFireDatabase) { 
 
+    this.GetCurrentUserData();//THIS METHOD IS CALLED TO GET CURRENT USER DATA SO THAT THE UID CAN BE USED TO PERFORM MOREMOPEREATIONS
+  }
+
+
+/**
+ * THIS METHOD WILL FIRST GET THE USER ID FROM THE CURRENT AUTHENTICATION STATE
+ * THEN GET THE USER CURRENT DATA FROM THE DATABASE
+\ * THEN STORES USER DATA IN LOCALSTORAGE SINCE IT IS ONLY ACCESSIBLE IN THE `authstate.subscribe` SCOPE
+ * THEN RETURN THE USER DATA
+ */
+  public GetCurrentUserData(): IUser {
+
+    this.afAuth.authState.subscribe(auth=>{
+
+
+      this.afDatabase.object(`${this.mainDBNodeRef}/${this.userNodeRef}/${auth.uid}`).snapshotChanges().subscribe(data=>{
+        this.userData = data.payload.val() as IUser;
+
+      localStorage.setItem('user',JSON.stringify(this.userData))
+    })
+
+    })
+    
+    
+this.userData = JSON.parse(localStorage.getItem('user'));
+
+    console.log(this.userData);
+      return this.userData;
+  }
 
 
   /**
@@ -56,5 +90,57 @@ export class FirebaseDBService {
    public sendforgetPasswordEmail(email):Promise<void>{
      return this.afAuth.auth.sendPasswordResetEmail(email);
    }
+
+
+
+
+   /**
+    * ALL POST CRUD METHODS for the current user
+    */
+
+    public createNewPost(post:IPost){
+
+      return this.afDatabase.list(`${this.mainDBNodeRef}/${this.userNodeRef}/${this.userData.uid}/post`).push(post);
+
+    }
+
+    //GET POST reference 
+    public readAllPost(){
+      return this.afDatabase.list(`${this.mainDBNodeRef}/${this.userNodeRef}/${this.userData.uid}/post`);
+    }
+
+
+
+    /**
+    * ALL NOTIFICATION CRUD METHODS for the current user
+    */
+
+   public createNewNotification(post:IPost){
+
+    return this.afDatabase.list(`${this.mainDBNodeRef}/${this.userNodeRef}/${this.userData.uid}/notification`).push(post);
+
+  }
+
+  //GET NOTIFICATION reference 
+  public readAllNotification(){
+    return this.afDatabase.list(`${this.mainDBNodeRef}/${this.userNodeRef}/${this.userData.uid}/notification`);
+  }
+
+
+
+    /**
+    * ALL commentsCRUD METHODS for the current user
+    */
+
+   public createNewComments(post:IPost){
+
+    return this.afDatabase.list(`${this.mainDBNodeRef}/${this.userNodeRef}/${this.userData.uid}/comments`).push(post);
+
+  }
+
+  //GET comments reference 
+  public readAllComments(){
+    return this.afDatabase.list(`${this.mainDBNodeRef}/${this.userNodeRef}/${this.userData.uid}/comments`);
+  }
 
 }
