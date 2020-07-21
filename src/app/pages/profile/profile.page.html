@@ -1,9 +1,128 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Profile</ion-title>
+    <ion-title>GoOut</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-grid>
+
+    <ion-row class="followRow">
+      <ion-col>
+        Followers <br>
+        245k
+      </ion-col>
+
+      <ion-col>
+        Following <br>
+        8 
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col >
+        <ion-icon name="person-add-outline"></ion-icon>
+        <br>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-col>
+
+      <ion-col ion-grid-column-padding-lg>
+        <ion-avatar>
+           <ion-img [src]="imageUrl"></ion-img>
+        </ion-avatar>
+         
+        
+      </ion-col>
+
+     <ion-col>
+        <ion-icon name="chatbox-outline"></ion-icon>
+        <br>
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-col>
+
+
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col>
+          <h4>Shamone Reid</h4>
+          
+          <p> I want to go to love soca tonight. Some one buy me a ticket :)</p>
+      </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+
+
+  <div padding>
+    <ion-segment [(ngModel)]="userChoices">
+      <ion-segment-button value="gallery">Gallery</ion-segment-button>
+        <ion-segment-button value="upcoming">Upcoming</ion-segment-button>
+        <ion-segment-button value="crew">crew</ion-segment-button>
+
+    </ion-segment>
+</div>
+
+
+
+<!--
+  Setup ionic segment using ngswitch
+  which will  allow use to naviagte between the three segments
+-->
+    <div [ngSwitch]="userChoices">
+
+
+          <!-- Setup up what happens when the user clicks gallery button-->
+          <ion-list *ngSwitchCase="'gallery'">
+
+            <h3>gallery</h3>
+          </ion-list>
+
+
+
+
+          <!-- Setup up what happens when the user clicks upcomingbutton-->
+          <ion-list *ngSwitchCase="'upcoming'">
+            <h3>upcoming</h3>
+          </ion-list>
+
+
+
+          <!-- Setup up what happens when the user clicks crew button-->
+          <ion-list *ngSwitchCase="'crew'">
+            
+
+        <ion-card>
+
+          <ion-item>
+              <ion-avatar item-start>
+                <ion-img [src]="imageUrl"></ion-img>
+              </ion-avatar>
+              <h5 class="crew-name">Crew Member</h5>
+
+              <ion-icon name="person-add-outline"></ion-icon>
+                 
+             
+          </ion-item>
+
+       <!--  <ion-card-content>
+            34k Followers
+            456 Following
+          </ion-card-content>
+         --> 
+        
+
+      </ion-card>
+
+
+          </ion-list>
+
+
+
+    </div>
 
 </ion-content>
