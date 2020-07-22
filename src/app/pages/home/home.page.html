@@ -1,19 +1,58 @@
 <ion-content [fullscreen]="true">
-  <!-- Header -->
-  <div class="container ion-text-center">
-    <ion-row id="languageRow">
-      <ion-col></ion-col>
-      <ion-col>
-        <ion-select id="Language" ok-text="Okay" cancel-text="Cancel" value="English">
-          <ion-select-option  value="English">English (United States)</ion-select-option>
-        </ion-select>
-      </ion-col>
-      <ion-col></ion-col>
+  
+  
+
+  <div style="margin-top: 40px;">
+    <ion-row>
+      <ion-col class="ion-text-center Logo" style="font-size: 60px; color: #007BC3; font-style: 'Brush Script MT !important';">GoOut </ion-col>
     </ion-row>
   </div>
+
+  <ion-slides [options]="slideOpts">
+
+    <ion-slide>
+      <div class="slide">
+        <img  src='../../../assets/Pics/slide-4.jpg' />
+        <h2>Welcome</h2>
+        <p> <b></b> Here is an app that seeks to bring people together in innovative ways.</p>
+      </div>
+      <div style="margin-top: 50px;">
+        <ion-row>
+          <ion-col class="ion-text-center Logo" style="font-size: 40px; color: #007BC3; font-style: 'Brush Script MT !important';">Swipe Left </ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide >
+      <img src="../../../assets/Pics/Untitled9.png" />
+      <h2>What can I do with this App?</h2>
+      <p><b>Plan outings with friends</b> - our mobile app facilitates link ups with friends and organizing events.</p>
+      <div style="margin-top: 50px;">
+        <ion-row>
+          <ion-col class="ion-text-center Logo" style="font-size: 40px; color: #007BC3; font-style: 'Brush Script MT !important';">Swipe Left </ion-col>
+        </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="../../../assets/Pics/Untitled8.png"/>
+      <h2>See Trending Events!</h2>
+      <p><b></b> See trending events locally and even neraby. You  can also join experiences other person's are having outdoors.</p>
+      <ion-row>
+        <ion-col size="4"></ion-col>
+        <ion-col size="4" style="margin-top: 20px;">
+          <ion-button expand="block" style="font-size: 14px; background-color: #007BC3; !important">Get Started</ion-button>
+          <ion-button expand="block" style="margin-top: 10px; font-size: 14px; background-color: #007BC3 !important">Login Instead</ion-button>
+        </ion-col>
+        <ion-col size="4"></ion-col>
+      </ion-row>
+      
+    </ion-slide>
+
   
+  </ion-slides>
   <!-- Login Section -->
-  <div id="container" class="Login">
+  <!--<div id="container" class="Login">
     <ion-row>
       <ion-col>
         <h3 class="Logo"><span class="gold">G</span><span class="green">o</span><span class="white">O</span><span class="green">u</span><span>t</span><span class="green">!</span></h3>
@@ -34,7 +73,6 @@
         </ion-row>
         <ion-row>
           
-          <!--Registration link-->
           <ion-col size="10">
             <p class="ion-text-start" id="smallText">Forget your login details? <a (click)="goToForgetPassword()">Click here</a> or 
               
@@ -48,5 +86,5 @@
         
       </ion-col>
     </ion-row>
-  </div>
+  </div> -->
 </ion-content>

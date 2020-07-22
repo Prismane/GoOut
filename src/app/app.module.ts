@@ -35,7 +35,7 @@ import { Calendar } from '@ionic-native/calendar/ngx';
   providers: [
     StatusBar,
     SplashScreen,
-    Calendar ,
+  
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
