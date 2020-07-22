@@ -151,5 +151,8 @@ export class HomePage  implements OnInit{
     this.router.navigateByUrl('forget-password');
   }
 
+  private LoginPage(){
+    this.router.navigateByUrl('login');
+  }
 
 }
