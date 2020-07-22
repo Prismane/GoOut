@@ -18,7 +18,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 // environment- environment stores firebase object
 import { environment } from '../environments/environment';
 
-
+import { Calendar } from '@ionic-native/calendar/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,6 +35,7 @@ import { environment } from '../environments/environment';
   providers: [
     StatusBar,
     SplashScreen,
+    Calendar ,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
