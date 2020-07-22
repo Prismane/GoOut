@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Calendar } from '@ionic-native/calendar/ngx';
+//import { Calendar } from '@ionic-native/calendar/ngx';
 
 
 @Component({
@@ -11,7 +11,11 @@ export class ProfilePage implements OnInit {
 
 
   public imageUrl='../../../assets/anita.jpg'
-  constructor(private calendar: Calendar) { }
+  public party1Url='../../../assets/party1.jpg'
+  public party2Url='../../../assets/party2.jpg'
+  public party3Url='../../../assets/party3.jpg';
+  public image2Url='../../../assets/Wendy.jpeg';
+  constructor() { }
 
   ngOnInit() {
   }
