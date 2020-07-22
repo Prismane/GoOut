@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'feeds',
     loadChildren: () => import('./pages/feeds/feeds.module').then( m => m.FeedsPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   }
 ];
 
