@@ -14,4 +14,10 @@ export class FeedsPage implements OnInit {
   ngOnInit() {
   }
 
+
+  public segmentChanged(event)
+  {
+
+  }
+
 }
