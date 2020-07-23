@@ -1,9 +1,93 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Home</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+  <ion-header [translucent]="true">
 
-</ion-content>
+   
+  
+  
+    <ion-segment 
+      value="featured" 
+      
+      [(ngModel)]="this.segmentModel" 
+      (ionChange)="segmentChanged($event)"
+      style="height: 70px; 
+      background-color: white;
+      margin-top: 25px;">
+  
+        <ion-segment-button value="featured" >
+          <ion-label>Featured</ion-label>
+        </ion-segment-button>
+  
+        <ion-segment-button value="favorites" >
+          <ion-label>Trending</ion-label>
+        </ion-segment-button>
+  
+        <ion-segment-button value="settings">
+          <ion-label>Nearby You</ion-label>
+        </ion-segment-button>
+  
+       
+      </ion-segment>
+      
+  </ion-header>
+
+  <ion-content [fullscreen]="true" class="ion-padding">
+
+    <ion-card *ngIf="segmentModel === 'featured'">
+      <ion-card-header>
+        <ion-card-subtitle><span style="font-size: 12px;">432 tickets available   </span></ion-card-subtitle>
+        <ion-card-title>Featured Event</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <img src="../../../assets/Pics/Poster.jpg" />
+        <span style="font-size: 14px; color: black;">
+          15K likes      
+        </span>
+      </ion-card-content>
+        
+    </ion-card>
+    
+    <ion-card *ngIf="segmentModel === 'favorites'">
+      <ion-card-header>
+        <ion-card-subtitle>Segment Content</ion-card-subtitle>
+        <ion-card-title>Favorites</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Keep close to Nature's heart... and break clear away, once in awhile,
+        and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-card *ngIf="segmentModel === 'favorites'">
+      <ion-card-header>
+        <ion-card-subtitle>Segment Content</ion-card-subtitle>
+        <ion-card-title>Profile</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Keep close to Nature's heart... and break clear away, once in awhile,
+        and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      </ion-card-content>
+    </ion-card>
+    
+    
+    <ion-row *ngIf="segmentModel === 'featured'">
+      <ion-col></ion-col>
+      <ion-col size="11">
+        <div style="padding-bottom: 20px;">
+          <ion-card-title>Suggested for you</ion-card-title>
+        </div>
+        <div class="scrolling-wrapper">
+          <img class="card" src="../../../assets/Pics/Poster2.jpg"/>
+          <img class="card" src="../../../assets/Pics/Poster3.jpg"/>
+          <img class="card" src="../../../assets/Pics/Poster4.jpg"/>
+          <img class="card" src="../../../assets/Pics/Poster.jpg"/>
+          <img class="card" src="../../../assets/Pics/Poster1.jpg"/>
+          <img class="card" src="../../../assets/Pics/Poster5.jpg"/>
+
+        </div>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+    
+  </ion-content>

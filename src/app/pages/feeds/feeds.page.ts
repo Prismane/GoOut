@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedsPage implements OnInit {
 
+
+  private segmentModel = 'featured';
   constructor() { }
 
   ngOnInit() {

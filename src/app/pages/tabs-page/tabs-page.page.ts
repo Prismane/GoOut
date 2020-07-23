@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-tabs-page',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabsPagePage implements OnInit {
 
-  constructor() { }
+
+  private segmentModel: any;
+
+  constructor(private router: Router, private navCtrl:NavController) { }
 
   ngOnInit() {
+
   }
+
+  segmentChanged(event){
+
+  }
+
 
 }
