@@ -11,9 +11,8 @@ export class PaymentPage implements OnInit {
 
 
 
-  public paypal='../../../assets/PayPal4.png';
-  
-  constructor(private payPal: PayPal,private alertController: AlertController) { }
+  public paypal = '../../../assets/PayPal4.png';
+  constructor(private payPal: PayPal, private alertController: AlertController) { }
 
   ngOnInit() {
   }

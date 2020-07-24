@@ -1,26 +1,36 @@
 
   <ion-header [translucent]="true">
 
-   
+   <ion-nav style="height: 70px; padding: 10px; ;">
+     <ion-nav-link>
+      <span class="Logo" style="color: black;">GoOut</span> 
+     </ion-nav-link>
+   </ion-nav>
   
-  
+
+    
+    
     <ion-segment 
       value="featured" 
       
       [(ngModel)]="this.segmentModel" 
       (ionChange)="segmentChanged($event)"
-      style="height: 70px; 
+      style="height: 95px; 
       background-color: white;
-      margin-top: 25px;">
+      margin-top: 70px;">
   
         <ion-segment-button value="featured" >
+          <ion-icon name="tv-outline"></ion-icon>
           <ion-label>Featured</ion-label>
         </ion-segment-button>
   
-        <ion-segment-button value="favorites" (click)="hideMap()" >
+        <ion-segment-button value="trending" >
+          <ion-icon name="trending-up-outline"></ion-icon>
+
           <ion-label>Trending</ion-label>
         </ion-segment-button>
-  
+
+        
         <ion-segment-button value="settings" (click)="showMap()">
           <ion-label>Nearby You</ion-label>
         </ion-segment-button>
@@ -30,7 +40,17 @@
       
   </ion-header>
 
+
+
   <ion-content [fullscreen]="true" class="ion-padding">
+
+
+    <div *ngIf="segmentModel === 'trending' || segmentModel === 'featured'">
+      <ion-toolbar style="z-index: 1;">
+        <ion-searchbar></ion-searchbar>
+      </ion-toolbar>
+    </div>
+
 
     <ion-card *ngIf="segmentModel === 'featured'">
       <ion-card-header>
@@ -45,16 +65,158 @@
       </ion-card-content>
         
     </ion-card>
+
     
-    <ion-card *ngIf="segmentModel === 'favorites'">
+    
+    <ion-card *ngIf="segmentModel === 'trending'">
       <ion-card-header>
-        <ion-card-subtitle>Segment Content</ion-card-subtitle>
-        <ion-card-title>Favorites</ion-card-title>
+        <ion-card-title>#1 </ion-card-title>
+        <ion-card-subtitle><span style="font-size: 12px; ">345K likes  </span></ion-card-subtitle>
+        <h4 class="ion-text-center" style="color: black;">Night Party</h4>
       </ion-card-header>
-    
       <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile,
-        and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        <img src="../../../assets/Pics/Poster29.jpg" />
+        <ion-row style="width: 35%; margin-top: 10px;">
+          <ion-col size="4">
+            <ion-icon name="heart-outline" style="font-size: 35px;"></ion-icon>
+          </ion-col>
+          <ion-col size="4" style="margin-left: 0px;">
+            <ion-icon name="chatbox-outline" style="font-size: 35px;"></ion-icon>
+
+          </ion-col>
+          <ion-col size="4" style="margin-left: 0px;">
+            <ion-icon name="share-social-outline" style="font-size: 35px;"></ion-icon>
+          </ion-col>
+        </ion-row>
+        <a style="cursor:pointer;"><h6>View all 321 comments</h6></a>
+        <h6 style="font-size: xx-small;">65 minutes ago</h6>
+        
+        <ion-item>
+          <ion-label position="floating" style="font-size: small;">Add a comment</ion-label>
+          <ion-input style="font-size: small; border-bottom: .1px solid black;"></ion-input>
+        </ion-item>
+      </ion-card-content>
+        
+        
+    </ion-card>
+
+    <ion-card *ngIf="segmentModel === 'trending'">
+      <ion-card-header>
+        <ion-card-title>#2 </ion-card-title>
+        <ion-card-subtitle><span style="font-size: 12px;">235K likes  </span></ion-card-subtitle>
+        <h4 class="ion-text-center" style="color: black;">Music Party</h4>
+
+      </ion-card-header>
+      <ion-card-content>
+        <img src="../../../assets/Pics/Poster30.jpg" />
+        <ion-row style="width: 35%; margin-top: 10px;">
+          <ion-col size="4">
+            <ion-icon name="heart-outline" style="font-size: 35px;"></ion-icon>
+          </ion-col>
+          <ion-col size="4" style="margin-left: 0px;">
+            <ion-icon name="chatbox-outline" style="font-size: 35px;"></ion-icon>
+
+          </ion-col>
+          <ion-col size="4" style="margin-left: 0px;">
+            <ion-icon name="share-social-outline" style="font-size: 35px;"></ion-icon>
+          </ion-col>
+        </ion-row>
+        <a style="cursor:pointer;"><h6>View all 761 comments</h6></a>
+        <h6 style="font-size: xx-small;">43 minutes ago</h6>
+        <ion-item>
+          <ion-label position="floating" style="font-size: small;">Add a comment</ion-label>
+          <ion-input style="font-size: small; border-bottom: .1px solid black;"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="segmentModel === 'trending'">
+      <ion-card-header>
+        <ion-card-title>#3 </ion-card-title>
+        <ion-card-subtitle><span style="font-size: 12px; ">218K likes  </span></ion-card-subtitle>
+        <h4 class="ion-text-center" style="color: black;">Birthday Party</h4>
+
+      </ion-card-header>
+      <ion-card-content>
+        <img src="../../../assets/Pics/Poster31.jpg" />
+        <ion-row style="width: 35%; margin-top: 10px;">
+          <ion-col size="4">
+            <ion-icon name="heart-outline" style="font-size: 35px;"></ion-icon>
+          </ion-col>
+          <ion-col size="4" style="margin-left: 0px;">
+            <ion-icon name="chatbox-outline" style="font-size: 35px;"></ion-icon>
+
+          </ion-col>
+          <ion-col size="4" style="margin-left: 0px;">
+            <ion-icon name="share-social-outline" style="font-size: 35px;"></ion-icon>
+          </ion-col>
+        </ion-row>
+        <a style="cursor:pointer;"><h6>View all 21 comments</h6></a>
+        <h6 style="font-size: xx-small;">34 minutes ago</h6>
+        <ion-item>
+          <ion-label position="floating" style="font-size: small;">Add a comment</ion-label>
+          <ion-input style="font-size: small; border-bottom: .1px solid black;"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="segmentModel === 'trending'">
+      <ion-card-header>
+        <ion-card-title>#4 </ion-card-title>
+        <ion-card-subtitle><span style="font-size: 12px; ">155K likes  </span></ion-card-subtitle>
+        <h4 class="ion-text-center" style="color: black;">Xmas Party</h4>
+
+      </ion-card-header>
+      <ion-card-content>
+        <img src="../../../assets/Pics/Poster28.jpg" />
+        <ion-row style="width: 35%; margin-top: 10px;">
+          <ion-col size="4">
+            <ion-icon name="heart-outline" style="font-size: 35px;"></ion-icon>
+          </ion-col>
+          <ion-col size="4" style="margin-left: 0px;">
+            <ion-icon name="chatbox-outline" style="font-size: 35px;"></ion-icon>
+
+          </ion-col>
+          <ion-col size="4" style="margin-left: 0px;">
+            <ion-icon name="share-social-outline" style="font-size: 35px;"></ion-icon>
+          </ion-col>
+        </ion-row>
+        <a style="cursor:pointer;"><h6>View all 901 comments</h6></a>
+        <h6 style="font-size: xx-small;">9 minutes ago</h6>
+        <ion-item>
+          <ion-label position="floating" style="font-size: small;">Add a comment</ion-label>
+          <ion-input style="font-size: small; border-bottom: .1px solid black;"></ion-input>
+        </ion-item>
+        
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="segmentModel === 'trending'">
+      <ion-card-header>
+        <ion-card-title>#5 </ion-card-title>
+        <ion-card-subtitle><span style="font-size: 12px;">122K likes  </span></ion-card-subtitle>
+        <h4 class="ion-text-center" style="color: black;">Birthday Party</h4>
+
+      </ion-card-header>
+      <ion-card-content>
+        <img src="../../../assets/Pics/Poster31.jpg" />
+        <ion-row style="width: 45%; margin-top: 10px;">
+          <ion-col size="auto">
+            <ion-icon name="heart-outline" style="font-size: 35px;"></ion-icon>
+          </ion-col>
+          <ion-col size="auto" style="margin-left: 0px;">
+            <ion-icon name="chatbox-outline" style="font-size: 35px;"></ion-icon>
+          </ion-col>
+          <ion-col size="auto" style="margin-left: 0px;">
+            <ion-icon name="share-social-outline" style="font-size: 35px;"></ion-icon>
+          </ion-col>
+        </ion-row>
+        <a style="cursor:pointer;"><h6>View all 36 comments</h6></a>
+        <h6 style="font-size: xx-small;">1 hour ago</h6>
+        <ion-item>
+          <ion-label position="floating" style="font-size: small;">Add a comment</ion-label>
+          <ion-input style="font-size: small; border-bottom: .1px solid black;"></ion-input>
+        </ion-item>
       </ion-card-content>
     </ion-card>
     

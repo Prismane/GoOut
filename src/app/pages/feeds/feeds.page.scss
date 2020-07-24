@@ -13,11 +13,18 @@
     }
   }
 
+  .Logo{
+    font-family: 'Brush Script MT';
+    font-size: 40px;
+    margin-left: 25px;
+  }
+
+  
 
   .map{
     height:100%;
   }
 
   #hiddenMap{
-   visibility: hidden;
+   visibility: visible;
   }
