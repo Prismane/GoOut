@@ -31,6 +31,22 @@ const routes: Routes = [
   {
     path: 'payment',
     loadChildren: () => import('./pages/payment/payment.module').then( m => m.PaymentPageModule)
+  },
+  {
+    path: 'create-plan',
+    loadChildren: () => import('./pages/create-plan/create-plan.module').then( m => m.CreatePlanPageModule)
+  },
+  {
+    path: 'plan-date',
+    loadChildren: () => import('./pages/plan-date/plan-date.module').then( m => m.PlanDatePageModule)
+  },
+  {
+    path: 'plan-name',
+    loadChildren: () => import('./pages/plan-name/plan-name.module').then( m => m.PlanNamePageModule)
+  },
+  {
+    path: 'all-plans',
+    loadChildren: () => import('./pages/all-plans/all-plans.module').then( m => m.AllPlansPageModule)
   }
 ];
 
