@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
+import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal/ngx';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -9,6 +9,10 @@ import { AlertController } from '@ionic/angular';
 })
 export class PaymentPage implements OnInit {
 
+
+
+  public paypal='../../../assets/PayPal4.png';
+  
   constructor(private payPal: PayPal,private alertController: AlertController) { }
 
   ngOnInit() {

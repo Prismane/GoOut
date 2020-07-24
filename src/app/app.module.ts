@@ -18,6 +18,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 // environment- environment stores firebase object
 import { environment } from '../environments/environment';
 
+import { PayPal } from '@ionic-native/paypal/ngx';
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -28,13 +31,13 @@ import { environment } from '../environments/environment';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-
+   
     AngularFirestoreModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
-  
+      PayPal,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
