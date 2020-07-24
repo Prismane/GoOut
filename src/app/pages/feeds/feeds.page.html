@@ -17,11 +17,11 @@
           <ion-label>Featured</ion-label>
         </ion-segment-button>
   
-        <ion-segment-button value="favorites" >
+        <ion-segment-button value="favorites" (click)="hideMap()" >
           <ion-label>Trending</ion-label>
         </ion-segment-button>
   
-        <ion-segment-button value="settings">
+        <ion-segment-button value="settings" (click)="showMap()">
           <ion-label>Nearby You</ion-label>
         </ion-segment-button>
   
@@ -95,10 +95,10 @@
 
     <!--Near by map-->
 
-    <div *ngIf="segmentModel === 'settings'">
+  
 
-      <div #map id="map"  class="map" ></div>
-    </div>
+      <div #map id="map"  class="map"  id="hiddenMap"></div>
+
 
     
   </ion-content>

@@ -79,4 +79,16 @@ export class FeedsPage implements OnInit {
   
    }//END OIF INTIALIZE MAP METHOD
 
+
+
+   public hideMap():void{
+
+    console.log("click")
+    document.getElementById('hiddenMap').style.visibility="hidden";
+   }
+
+   public showMap():void{
+    console.log("click")
+    document.getElementById('hiddenMap').style.visibility="visible";
+   }
 }
