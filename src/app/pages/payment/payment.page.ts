@@ -7,13 +7,11 @@ import { AlertController } from '@ionic/angular';
   templateUrl: './payment.page.html',
   styleUrls: ['./payment.page.scss'],
 })
-
 export class PaymentPage implements OnInit {
 
 
 
   public paypal = '../../../assets/PayPal4.png';
-  
   constructor(private payPal: PayPal, private alertController: AlertController) { }
 
   ngOnInit() {
